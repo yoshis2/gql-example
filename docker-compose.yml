@@ -1,0 +1,15 @@
+version: '3'
+services:
+  gqlgen-example:
+    image: gql-example
+    container_name: gqlgen-example
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+    - '.:/go/src/gqlgen'
+    environment:
+      GO_ENV: develop
+    ports:
+    - '8083:8080'
+    tty: true
